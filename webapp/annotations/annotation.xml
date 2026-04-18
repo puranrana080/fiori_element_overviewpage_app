@@ -11,6 +11,15 @@
     <edmx:DataServices>
         <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
             <Annotations Target="ZP5FE_EMP_SRV.Employee">
+            <Annotation Term="UI.SelectionFields" >
+                <Collection>
+                    <PropertyPath>Empid</PropertyPath>
+                    <PropertyPath>Name</PropertyPath>
+                    <PropertyPath>Desig</PropertyPath>
+                    <PropertyPath>Skill</PropertyPath>
+                    <PropertyPath>Status</PropertyPath>
+                </Collection>
+            </Annotation>
                 <Annotation Term="UI.Chart" Qualifier="ChartNameVsSal">
                     <Record Type="UI.ChartDefinitionType">
                         <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Column"/>
