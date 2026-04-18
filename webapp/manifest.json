@@ -156,7 +156,8 @@
               "dataPointAnnotationPath": "com.sap.vocabularies.UI.v1.DataPoint#DPSalary",
               "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification#IdtfcnAntnforTable",
               "value": "Permanent"
-            }, {
+            },
+            {
               "annotationPath": "com.sap.vocabularies.UI.v1.LineItem#LiForTableCard",
               "selectionAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#SVForPROBATIONARY",
               "dataPointAnnotationPath": "com.sap.vocabularies.UI.v1.DataPoint#DPSalary",
@@ -166,6 +167,36 @@
           ],
           "sortBy": "Name",
           "sortOrder": "ascending"
+        }
+      },
+      "IDListCard": {
+        "template": "sap.ovp.cards.list",
+        "model": "mainModel",
+        "settings": {
+          "entitySet": "EmployeeSet",
+          "title": "I am List Card",
+          "tabs": [
+            {}
+          ],
+          "sortBy": "Status",
+          "sortOrder": "descending",
+          "listFlavor": "standard",
+          "listType": "condensed"
+        }
+      },
+      "IDStackCard": {
+        "template": "sap.ovp.cards.stack",
+        "model": "mainModel",
+        "settings": {
+          "entitySet": "EmployeeSet",
+          "title": "I am Stack Card",
+          "subTitle": "Take Decision on Employees",
+          "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification",
+          "itemText": "Decision making",
+          "objectStreamCardsSettings": {
+            "annotationPath": "com.sap.vocabularies.UI.v1.Facets",
+            "showFirstActionInFooter": true
+          }
         }
       }
     },
