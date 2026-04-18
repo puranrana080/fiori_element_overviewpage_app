@@ -1,0 +1,187 @@
+{
+  "_version": "1.73.1",
+  "sap.app": {
+    "id": "com.demo.p5feovplocal",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:ovp",
+      "version": "1.22.0",
+      "toolsId": "1d145064-d85d-495c-ac91-4e116b6f7269"
+    },
+    "dataSources": {
+      "annotation": {
+        "type": "ODataAnnotation",
+        "uri": "annotations/annotation.xml",
+        "settings": {
+          "localUri": "annotations/annotation.xml"
+        }
+      },
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/ZP5FE_EMP_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "annotation"
+          ],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.136.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.ushell": {},
+        "sap.f": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ovp": {},
+        "sap.ui.rta": {},
+        "sap.ui.layout": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.demo.p5feovplocal.i18n.i18n"
+        }
+      },
+      "mainModel": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "defaultBindingMode": "TwoWay",
+          "defaultCountMode": "Inline",
+          "refreshAfterChange": false,
+          "metadataUrlParams": {
+            "sap-value-list": "none"
+          }
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [],
+      "targets": {}
+    }
+  },
+  "sap.ovp": {
+    "globalFilterModel": "mainModel",
+    "globalFilterEntitySet": "EmployeeSet",
+    "containerLayout": "resizable",
+    "enableLiveFilter": true,
+    "considerAnalyticalParameters": false,
+    "cards": {
+      "IDAnalyticalCard": {
+        "template": "sap.ovp.cards.charts.analytical",
+        "model": "mainModel",
+        "settings": {
+          "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#ChartNameVsSal",
+          "entitySet": "EmployeeSet",
+          "title": "I Am Analytical Card",
+          "subTitle": "Employee Vs Salary",
+          "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification#IdntAntnForAnltclCard",
+          "dataPointAnnotationPath": "com.sap.vocabularies.UI.v1.DataPoint#DPSalary",
+          "presentationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant#PVForChart"
+        }
+      },
+      "ID": {
+        "model": "mainModel",
+        "template": "sap.ovp.cards.list",
+        "settings": {
+          "title": "I am List Card",
+          "entitySet": "EmployeeSet",
+          "listType": "condensed",
+          "listFlavor": "standard",
+          "sortOrder": "descending",
+          "sortBy": "Salary",
+           "annotationPath": "com.sap.vocabularies.UI.v1.LineItem#LIForListCard",
+            "dataPointAnnotationPath": "com.sap.vocabularies.UI.v1.DataPoint#DPStatus",
+            "selectionAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#SVForPERMANENT",
+            "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification#IdtfcnAntnForListCard"
+        
+        }
+      },
+      "IDTableCard": {
+        "template": "sap.ovp.cards.table",
+        "model": "mainModel",
+        "settings": {
+          "entitySet": "EmployeeSet",
+          "title": "I am Table Card",
+          "tabs": [
+            {
+              "annotationPath": "com.sap.vocabularies.UI.v1.LineItem#LiForTableCard",
+              "selectionAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#SVForPERMANENT",
+              "dataPointAnnotationPath": "com.sap.vocabularies.UI.v1.DataPoint#DPSalary",
+              "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification#IdtfcnAntnforTable",
+              "value": "Permanent"
+            }, {
+              "annotationPath": "com.sap.vocabularies.UI.v1.LineItem#LiForTableCard",
+              "selectionAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#SVForPROBATIONARY",
+              "dataPointAnnotationPath": "com.sap.vocabularies.UI.v1.DataPoint#DPSalary",
+              "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification#IdtfcnAntnforTable",
+              "value": "Probationary"
+            }
+          ],
+          "sortBy": "Name",
+          "sortOrder": "ascending"
+        }
+      }
+    },
+    "chartSettings": {
+      "showDataLabel": true
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "analytical"
+  }
+}
+
+
+
+
+
+
+
