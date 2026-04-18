@@ -259,7 +259,7 @@
                         </Record>
                         <Record Type="UI.DataFieldForAction">
                             <PropertyValue Property="Label" String="UpdateEmpStatus"/>
-                            <PropertyValue Property="Action" String="UpdateEmpStatus"/>
+                            <PropertyValue Property="Action" String="ZP5FE_EMP_SRV.ZP5FE_EMP_SRV_Entities/UpdateEmpStatus"/>
                             <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
                         </Record>
                     </Collection>

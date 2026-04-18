@@ -136,11 +136,11 @@
           "listFlavor": "standard",
           "sortOrder": "descending",
           "sortBy": "Salary",
-           "annotationPath": "com.sap.vocabularies.UI.v1.LineItem#LIForListCard",
+            "annotationPath": "com.sap.vocabularies.UI.v1.LineItem#LIForListCard",
             "dataPointAnnotationPath": "com.sap.vocabularies.UI.v1.DataPoint#DPStatus",
             "selectionAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#SVForPERMANENT",
             "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification#IdtfcnAntnForListCard"
-        
+         
         }
       },
       "IDTableCard": {
@@ -169,21 +169,6 @@
           "sortOrder": "ascending"
         }
       },
-      "IDListCard": {
-        "template": "sap.ovp.cards.list",
-        "model": "mainModel",
-        "settings": {
-          "entitySet": "EmployeeSet",
-          "title": "I am List Card",
-          "tabs": [
-            {}
-          ],
-          "sortBy": "Status",
-          "sortOrder": "descending",
-          "listFlavor": "standard",
-          "listType": "condensed"
-        }
-      },
       "IDStackCard": {
         "template": "sap.ovp.cards.stack",
         "model": "mainModel",
@@ -197,6 +182,41 @@
             "annotationPath": "com.sap.vocabularies.UI.v1.Facets",
             "showFirstActionInFooter": true
           }
+        }
+      },
+      "IDLinkedListCard": {
+        "template": "sap.ovp.cards.linklist",
+        "model": "mainModel",
+        "settings": {
+          "title": "My Quick Links",
+          "subTitle": "cards",
+          "defaultSpan": {
+            "cols": 30,
+            "rows":20
+          },
+          "listFlavor": "standard",
+          "staticContent": [
+            {
+              "title": "Employee Management",
+              "subTitle": "UI5 App",
+              "semanticObject": "zp5_emp_mgmt",
+              "action": "manage"
+            }, {
+              "title": "Create Builk Employeess",
+              "subTitle": "Batch Operation",
+              "semanticObject": "zp5_batchoprs",
+              "action": "create"
+            },
+            {
+              "title": "Analytical info",
+              "subTitle": "Employee VS Salary",
+              "semanticObject": "zp5_charts",
+              "action": "disply"
+            }
+            
+            
+
+          ]
         }
       }
     },
